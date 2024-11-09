@@ -22,7 +22,7 @@ This Node.js API provides User Authentication, Movie and Booking Management, and
 
 ### Prerequisites
 
-- *Node.js* version >= 22.0
+- *Node.js* version >= 14.0
 - *npm* version >= 6.0
 - *MySQLDB*
 
