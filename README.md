@@ -31,4 +31,11 @@ This Node.js API provides User Authentication, Movie and Booking Management, and
 1. Clone the repository:
    bash
    git clone https://github.com/salah-om/cinema-booking-system.git
-   
+
+2. Once you have the source code, open your code editor and install the following:
+   install dotenv
+   install express
+   install express-session
+   install multer
+
+3. Enter npm run dev into the console and press Enter
