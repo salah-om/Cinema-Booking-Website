@@ -37,3 +37,5 @@ class Movie {
 }
 
 module.exports = Movie;
+
+// Toy story is a good movie
