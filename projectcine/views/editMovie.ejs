@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: hsl(0, 0%, 17%);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Edit | Cineverse</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- import css styles -->
+    <link rel="stylesheet" href="/css/editstyle.css"> 
+    <!-- add icon link -->
+    <link rel="icon" href="/images/adminfix.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Movie: <%= movie.title %></h1>
+
+        <!-- Display movie details -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4>Movie Information</h4>
+                <ul>
+                    <li><b>Title:</b> <%= movie.title %></li>
+                    <li><b>Description:</b> <%= movie.description %></li>
+                    <li><b>Genre:</b> <%= movie.genre %></li>
+                    <li><b>Duration:</b> <%= movie.duration %></li>
+                    <li><b>Release:</b> <%= movie.release %></li>
+                    <li><b>Starring Actors:</b> <%= movie.stars %></li>
+                    <li><b>Screening Time:</b> <%= movie.screening %></li>
+                    <li><b>Hall #:</b> <%= movie.hallno %></li>
+                    <li><b>Rating:</b> <%= movie.rating %></li>
+                    <li><b>Language:</b> <%= movie.lang %></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Edit Movie Form -->
+        <form action="/api/movies/update-movie/<%= movie.id %>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <!-- Display current first name as the default value -->
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" value="<%= movie.title %>" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <!-- Display current last name as the default value -->
+                <input type="text" id="description" name="description" class="desc" placeholder="Enter Description" value="<%= movie.description %>" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <select id="genre" name="genre" class="smbox" required>
+                    <!-- Dynamically populate genres -->
+                    <% const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance', 'Thriller']; %>
+                    <% genres.forEach(function(g) { %>
+                        <option value="<%= g %>" <%= movie.genre === g ? 'selected' : '' %>><%= g %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <!-- Display current durationword as the default value -->
+                <input type="int" id="duration" name="duration" class="nmb" placeholder="Enter Duration" value="<%= movie.duration %>" required>
+            </div>
+            <div class="form-group">
+                <label for="release">Release Date</label>
+                <!-- Display current durationword as the default value -->
+                <input type="text" id="release" name="release" class="smbox" placeholder="Enter Release Date" value="<%= movie.release %>" required>
+            </div>
+            <div class="form-group">
+                <label for="stars">Starring Actors</label>
+                <!-- Display current durationword as the default value -->
+                <input type="text" id="stars" name="stars" class="form-control" placeholder="Enter Starring Actors" value="<%= movie.stars %>" required>
+            </div>
+            <div class="form-group">
+                <label for="screening">Screening Time</label>
+                <!-- Display current durationword as the default value -->
+                <input type="text" id="screening" name="screening" class="smbox" placeholder="Enter Screening Time" value="<%= movie.screening %>" required>
+            </div>
+            <div class="form-group">
+                <label for="hallno">Hall Number</label>
+                <!-- Display current durationword as the default value -->
+                <input type="int" id="hallno" name="hallno" class="nmb" placeholder="Enter Hall Number" value="<%= movie.hallno %>" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <!-- Display current durationword as the default value -->
+                <input type="int" id="rating" name="rating" class="nmb" placeholder="Enter Rating" value="<%= movie.rating %>" required>
+            </div>
+            <div class="form-group">
+                <label for="lang">Language</label>
+                <select id="lang" name="lang" class="smbox" required>
+                    <!-- Dynamically populate genres -->
+                    <% const languages = ['English', 'Arabic', 'French', 'Hindi']; %>
+                    <% languages.forEach(function(l) { %>
+                        <option value="<%= l %>" <%= movie.lang === l ? 'selected' : '' %>><%= l %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="poster">Poster</label>
+                <input type="file" id="poster" name="poster" class="" placeholder=""  required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Xn7RIF3kXov2+K7w0a+Y3hT6uY8URxx+VdCzXj7mVt8V+Xb" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: hsl(0, 0%, 17%);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Edit | Cineverse</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- import css styles -->
+    <link rel="stylesheet" href="/css/editstyle.css"> 
+    <!-- add icon link -->
+    <link rel="icon" href="/images/adminfix.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Profile: <%= user.fname %></h1>
+
+        <!-- Display user details -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4>User Information</h4>
+                <ul>
+                    <li><b>First Name:</b> <%= user.fname %></li>
+                    <li><b>Last Name:</b> <%= user.lname %></li>
+                    <li><b>Email:</b> <%= user.email %></li>
+                    <li><b>Password:</b> <%= user.pass %></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Edit User Form -->
+        <form action="/api/users/update-user/<%= user.id %>" method="POST">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <!-- Display current first name as the default value -->
+                <input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" value="<%= user.fname %>" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <!-- Display current last name as the default value -->
+                <input type="text" id="lname" name="lname" class="form-control" placeholder="Enter Last Name" value="<%= user.lname %>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <!-- Display current email as the default value -->
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%= user.email %>" required>
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <!-- Display current password as the default value -->
+                <input type="text" id="pass" name="pass" class="form-control" placeholder="Enter Password" value="<%= user.pass %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Xn7RIF3kXov2+K7w0a+Y3hT6uY8URxx+VdCzXj7mVt8V+Xb" crossorigin="anonymous"></script>
+</body>
+
+</html>

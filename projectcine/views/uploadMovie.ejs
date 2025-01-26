@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Movie | Cineverse</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- icons import -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- import css styles -->
+    <link rel="stylesheet" href="/css/adminstyle.css">
+    <!-- add icon link -->
+    <link rel="icon" href="/images/adminfix.png" type="image/x-icon">
+</head>
+
+
+<body class ="adminsbg">
+    <%- include('partials/sidebar') %>
+        <div class="compart">      
+        <form class ="formmov" action="/api/movies/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" required>
+            </div>
+            <div class="desc">
+                <label for="description">Description</label>
+                <input class = "dscin"type="text" id="description" name="description" class="desc" placeholder="Enter Description" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <select id="genre" name="genre" class="smbox" required>
+                    <!-- Dynamically populate genres -->
+                    <% const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance', 'Thriller']; %>
+                    <% genres.forEach(function(g) { %>
+                        <option value="<%= g %>" <%= movie.genre === g ? 'selected' : '' %>><%= g %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="int" id="duration" name="duration" class="nmb" placeholder="Enter Duration" required>
+            </div>
+            <div class="form-group">
+                <label for="release">Release Date</label>
+                <input type="text" id="release" name="release" class="smbox" placeholder="Enter Release Date" required>
+            </div>
+            <div class="form-group">
+                <label for="stars">Starring Actors</label>
+                <input type="text" id="stars" name="stars" class="form-control" placeholder="Enter Starring Actors" required>
+            </div>
+            <div class="form-group">
+                <label for="screening">Screening Time</label>
+                <input type="text" id="screening" name="screening" class="smbox" placeholder="Enter Screening Time" required>
+            </div>
+            <div class="form-group">
+                <label for="hallno">Hall Number</label>
+                <input type="int" id="hallno" name="hallno" class="nmb" placeholder="Enter Hall Number" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="int" id="rating" name="rating" class="nmb" placeholder="Enter Rating" required>
+            </div>
+            <div class="form-group">
+                <label for="lang">Language</label>
+                <select id="lang" name="lang" class="smbox" required>
+                    <!-- Dynamically populate genres -->
+                    <% const languages = ['English', 'Arabic', 'French', 'Hindi']; %>
+                    <% languages.forEach(function(l) { %>
+                        <option value="<%= l %>" <%= movie.lang === l ? 'selected' : '' %>><%= l %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="poster">Upload Poster</label>
+                <input type="file" id="poster" name="poster" class="" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+        </form>
+    </div>
+</div>
+</body>
+
+
+</html>

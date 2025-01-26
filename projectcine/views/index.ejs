@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/homestyle.css">
+  <!-- icons import -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- add icon link -->
+  <link rel="icon" href="/images/popcorn.png" type="image/x-icon">
+  <script defer src="/js/script.js"></script>
+  <title>Home | Cineverse</title>
+</head>
+
+<body>
+  <%- include('partials/menu') %>
+  <div class="welcome">
+    <h1 class="wlcm">Welcome, <span class="exp"><%= user.fname %></span> </h1>
+  </div>
+
+  <div class="container-slides">
+    <div class="image-slides">
+      <img src="/images/img1slider.jpg" alt="">
+    </div>
+    <div class="image-slides">
+      <img src="/images/img2slider.jpg" alt="">
+    </div>
+    <div class="image-slides">
+      <img src="/images/img3slider.jpg" alt="">
+    </div>
+    <div class="image-slides">
+      <img src="/images/img4slider.jpg" alt="">
+    </div>
+
+    <div class="btnslider">
+      <a onclick="nextimg(-1)" class="prev">&#10094;</a>
+      <a onclick="nextimg(1)" class="next">&#10095;</a>
+    </div>
+
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </div>
+
+  <script>
+    var imageno = 1;
+    displayimg(imageno);
+
+    function nextimg(n) {
+      displayimg(imageno += n)
+    }
+
+    function currentSlide(n) {
+      displayimg(imageno = n)
+    }
+
+    function displayimg(n){
+      var i;
+      var image = document.getElementsByClassName("image-slides");
+      var dots = document.getElementsByClassName("dot");
+
+      if(n > image.length){
+        imageno = 1;
+      }
+
+      if(n < 1){
+        imageno = image.length;
+      }
+
+      for(i=0; i < image.length; i++){
+        image[i].style.display = "none";
+      }
+
+      for(i=0; i < dots.length; i++){
+        dots[i].className = dots[i].className.replace(" active","");
+      }
+
+      image[imageno - 1].style.display = "block";
+      dots[imageno - 1].className += " active";
+    }
+  </script>
+
+  <div class="about-us-two">
+    <h2>Cineverse <span class="exp">Experience</span></h2>
+    <p> Cineverse offers an unparalleled movie experience, where every detail is crafted to delight our guests. 
+        From the joyful laughter captured in our vibrant cinema rooms to the sleek, welcoming ambiance of our modern 
+        lobby, we aim to create memories that last. Our new halls, equipped with state-of-the-art technology and plush 
+        seating, redefine comfort and immersion, ensuring every visit to Cineverse is a cinematic journey like no other.
+        At Cineverse, we believe in blending entertainment with sophistication. Our cinema isn’t just a place to watch movies; 
+        it’s a destination to connect, unwind, and celebrate the magic of storytelling. The lively atmosphere in our cinema rooms 
+        reflects the joy of shared moments, while our thoughtfully designed lobby offers a perfect setting to relax before or after 
+        your show. Our newly unveiled halls promise an elevated viewing experience, complete with cutting-edge sound systems and 
+        crystal-clear visuals, making Cineverse the ultimate haven for movie enthusiasts.</p>
+  </div>
+  
+  <div class="movcontain">
+    <h1 class="h1n">Now <span class="exp">Showing</span></h1>
+    <div id="movieList" class="row"></div>
+  </div>
+ 
+  <%- include('partials/footer') %>
+</body>
+</html>

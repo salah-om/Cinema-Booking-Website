@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/homestyle.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" href="/images/popcorn.png" type="image/x-icon">
+  <script defer src="/js/script.js"></script>
+  <title>Book Seats | Cineverse</title>
+</head>
+
+<body>
+  <%- include('partials/menu') %>
+  <div class="wait">
+  <div class="mvdetails">
+    <h1 class="mvtl"> <span class="wlcmc">Movie: </span><%= movie.title %></h1>
+    <h2 class="hall"><span class="hallc">Hall #: </span><%= movie.hallno %></h2>
+  </div>
+
+  <div class="seatplan">
+    <img class="screen" src="/images/screen.png" alt="Screen">
+
+    <form class='bookform' action="/api/seats/book-seat/11" method="POST">
+      <label class="lbls" for="seats">Choose your seat:</label>
+      <div class="seating-grid">
+        <!-- Row A -->
+        <div class="seat-row">
+          <span class="row-label">A1-A7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="1" name="seats[]" value="1">        
+          <input class = 'seat-checkbox' type="checkbox" id="2" name="seats[]" value="2">          
+          <input class = 'seat-checkbox' type="checkbox" id="3" name="seats[]" value="3">         
+          <input class = 'seat-checkbox' type="checkbox" id="4" name="seats[]" value="4">          
+          <input class = 'seat-checkbox' type="checkbox" id="5" name="seats[]" value="5">         
+          <input class = 'seat-checkbox' type="checkbox" id="6" name="seats[]" value="6">        
+          <input class = 'seat-checkbox' type="checkbox" id="7" name="seats[]" value="7">
+      
+        </div>
+        <!-- Row B -->
+        <div class="seat-row">
+          <span class="row-label">B1-B7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="8" name="seats[]" value="8">
+          <input class = 'seat-checkbox' type="checkbox" id="9" name="seats[]" value="9">
+          <input class = 'seat-checkbox' type="checkbox" id="10" name="seats[]" value="10">
+          <input class = 'seat-checkbox' type="checkbox" id="11" name="seats[]" value="11">
+          <input class = 'seat-checkbox' type="checkbox" id="12" name="seats[]" value="12">
+          <input class = 'seat-checkbox' type="checkbox" id="13" name="seats[]" value="13">
+          <input class = 'seat-checkbox' type="checkbox" id="14" name="seats[]" value="14">
+        </div>
+
+        <div class="seat-row">
+          <span class="row-label">C1-C7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="15" name="seats[]" value="15">
+          <input class = 'seat-checkbox' type="checkbox" id="16" name="seats[]" value="16">
+          <input class = 'seat-checkbox' type="checkbox" id="17" name="seats[]" value="17">
+          <input class = 'seat-checkbox' type="checkbox" id="18" name="seats[]" value="18">
+          <input class = 'seat-checkbox' type="checkbox" id="19" name="seats[]" value="19">
+          <input class = 'seat-checkbox' type="checkbox" id="20" name="seats[]" value="20">
+          <input class = 'seat-checkbox' type="checkbox" id="21" name="seats[]" value="21">
+
+        </div>
+
+        <div class="seat-row">
+          <span class="row-label">D1-D7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="22" name="seats[]" value="22">
+          <input class = 'seat-checkbox' type="checkbox" id="23" name="seats[]" value="23">
+          <input class = 'seat-checkbox' type="checkbox" id="24" name="seats[]" value="24">
+          <input class = 'seat-checkbox' type="checkbox" id="25" name="seats[]" value="25">
+          <input class = 'seat-checkbox' type="checkbox" id="26" name="seats[]" value="26">
+          <input class = 'seat-checkbox' type="checkbox" id="27" name="seats[]" value="27">
+          <input class = 'seat-checkbox' type="checkbox" id="28" name="seats[]" value="28">
+
+        </div>
+
+        <div class="seat-row">
+          <span class="row-label">E1-E7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="29" name="seats[]" value="29">
+          <input class = 'seat-checkbox' type="checkbox" id="30" name="seats[]" value="30">
+          <input class = 'seat-checkbox' type="checkbox" id="31" name="seats[]" value="31">
+          <input class = 'seat-checkbox' type="checkbox" id="32" name="seats[]" value="32">
+          <input class = 'seat-checkbox' type="checkbox" id="33" name="seats[]" value="33">
+          <input class = 'seat-checkbox' type="checkbox" id="34" name="seats[]" value="34">
+          <input class = 'seat-checkbox' type="checkbox" id="35" name="seats[]" value="35">
+
+        </div>
+
+        <div class="seat-row">
+          <span class="row-label">F1-F7&nbsp;</span>
+          <input class = 'seat-checkbox' type="checkbox" id="36" name="seats[]" value="36">
+          <input class = 'seat-checkbox' type="checkbox" id="37" name="seats[]" value="37">
+          <input class = 'seat-checkbox' type="checkbox" id="38" name="seats[]" value="38">
+          <input class = 'seat-checkbox' type="checkbox" id="39" name="seats[]" value="39">
+          <input class = 'seat-checkbox' type="checkbox" id="40" name="seats[]" value="40">
+          <input class = 'seat-checkbox' type="checkbox" id="41" name="seats[]" value="41">
+          <input class = 'seat-checkbox' type="checkbox" id="42" name="seats[]" value="42">
+
+        </div>
+      </div>
+      
+      <button id="confirmBooking" class='btn btn-primary btn-sm' type="submit">Confirm Booking</button>
+    </form>
+    <p class="lblstp">&nbsp;&nbsp;Total Price: $<span id="totalPrice">0</span></p>
+  </div>
+  </div>
+  <%- include('partials/footer') %>
+</body>
+</html>
