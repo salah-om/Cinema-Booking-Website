@@ -1,4 +1,3 @@
-const moment = require("moment");
 
 class Booking {
   constructor(id, movid, usid, date, price) {

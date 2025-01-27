@@ -1,4 +1,3 @@
-const moment = require("moment");
 
 class User {
   constructor(id, fname, lname, email, pass) {

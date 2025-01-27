@@ -1,4 +1,3 @@
-const moment = require("moment");
 
 class Seat {
   constructor(id, bookid, status, number, movid) {

@@ -1,4 +1,3 @@
-const moment = require("moment");
 
 class Movie {
   constructor(id, title, description, genre, duration, release, stars, screening, hallno, rating, lang, poster) {
