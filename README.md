@@ -39,3 +39,6 @@ This Node.js API provides User Authentication, Movie and Booking Management, and
    install multer
 
 3. Enter npm run dev into the console and press Enter
+
+### Images
+![Screenshot 2025-06-16 122146](https://github.com/user-attachments/assets/05a76bd4-eb4b-4b37-b170-d68fefce0ef1)
